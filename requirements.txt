@@ -1,0 +1,6 @@
+aiohttp==3.6.2
+aiohttp-cache==2.0.0
+cmake==3.17.2
+gunicorn==20.0.4
+opencv-python==4.2.0.34
+requests==2.23.0
