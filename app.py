@@ -32,7 +32,7 @@ async def faces_view(request):
         try:
             img = request_image(img_url)
         except Exception as e:
-            response = {"error": "not able to retrieve image from {img_url}"}
+            response = {"error": f"not able to retrieve image from {img_url}"}
             status = 503
         try:
             response = {"faces": detect_faces(img)}
