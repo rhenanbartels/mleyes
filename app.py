@@ -22,7 +22,7 @@ def read_image(img_content):
 
 def request_image(img_url):
     resp = requests.get(img_url)
-    return  read_image(resp.content)
+    return read_image(resp.content)
 
 
 @cache()
@@ -32,17 +32,13 @@ async def faces_view(request):
         try:
             img = request_image(img_url)
         except Exception as e:
-            response = {
-                "error": "not able to retrieve image from {img_url}"
-            }
+            response = {"error": "not able to retrieve image from {img_url}"}
             status = 503
         try:
             response = {"faces": detect_faces(img)}
             status = 200
         except Exception as e:
-            response = {
-                "error": f"error during face detection in image from {img_url}"
-            }
+            response = {"error": f"error during face detection in image from {img_url}"}
             status = 503
     else:
         response = {"error": "img url not provided"}
